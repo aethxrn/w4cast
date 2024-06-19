@@ -35,7 +35,7 @@ This app contains primary weather information such as temperature, wind speed, h
 
 ## Additional Info
 
-Since I mentioned that this project was made for personal "learning material", feel free to use it as a learning resource too. This project consists of frontend practices such as the use of a framework, responsive design implementation, API integration, and more.
+Since I mentioned that this project was made for personal "learning material", feel free to use it as a learning resource too. This project consists of frontend practices such as the use of a framework, responsive design implementation, API integration, and more.
 
 ## License
 
