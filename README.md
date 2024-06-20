@@ -1,5 +1,5 @@
 
-# W4CAST - Weather App
+# W4CAST
 
 A simple weather web-based app powered by Vue.js and WeatherAPI.
 
