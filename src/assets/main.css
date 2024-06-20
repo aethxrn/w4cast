@@ -18,8 +18,8 @@
   --gray: #252525;
   --primary: #dc5f00;
   --border-radius: 1rem;
-  --padding: 16px;
-  --gap: 16px;
+  --padding: 1rem;
+  --gap: 2rem;
 }
 
 html,
@@ -160,7 +160,6 @@ table {
 
   text-transform: uppercase;
   color: var(--light);
-  overflow: hidden;
 }
 /* Responsive calculation */
 html {
@@ -185,10 +184,14 @@ main,
 
   margin: 0 auto;
   max-width: 192rem;
-  padding: var(--padding);
+
 
   width: 100%;
   display: flex;
+
+  padding: var(--padding);
+
+  overflow: hidden;
 }
 
 #app {

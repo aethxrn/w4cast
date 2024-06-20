@@ -14,7 +14,7 @@
   height: 100%;
   aspect-ratio: 1 / 1;
 
-  padding: 16px;
+  padding: var(--padding);
   background-color: var(--light);
   border-radius: 100%;
 

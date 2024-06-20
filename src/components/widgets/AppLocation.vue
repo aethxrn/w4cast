@@ -1,9 +1,5 @@
 <script setup>
-const emit = defineEmits(["toggle-form"]);
-
-const toggleForm = () => {
-  emit("toggle-form");
-};
+import AppButton from "../AppButton.vue";
 </script>
 
 <template>
@@ -32,10 +28,12 @@ const toggleForm = () => {
       </div>
     </div>
 
-    <button
-      @click="toggleForm"
-      class="widget__btn"
-    >[ change location ]</button>
+    <AppButton
+      @toggle-form="$emit('toggle-form')"
+      class="widget__button"
+    >
+      [ search location ]
+    </AppButton>
   </div>
 
 </template>
@@ -78,23 +76,14 @@ hr {
   right: 0;
 }
 
-.widget__btn {
-  border: none;
-  padding: calc(var(--padding) / 2) var(--padding);
-
-  background: var(--primary);
-  color: var(--dark);
-
-  text-transform: uppercase;
-
+.widget__button {
   margin-top: auto;
   margin-left: auto;
-
-  transition: 0.1s ease;
-  cursor: pointer;
 }
 
-.widget__btn:hover {
-  transform: scale(1.05);
+@media only screen and (max-width: 912px) {
+  .widget__button {
+    display: none;
+  }
 }
 </style>

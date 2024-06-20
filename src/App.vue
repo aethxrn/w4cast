@@ -5,6 +5,7 @@ import AppCardCircle from "./components/widgets/AppCardCirc.vue";
 import AppCardRect from "./components/widgets/AppCardRect.vue";
 import AppLocation from "./components/widgets/AppLocation.vue";
 import AppSearchForm from "./components/AppSearchForm.vue";
+import AppButton from "./components/AppButton.vue";
 
 const isFormVisible = ref(false);
 
@@ -29,8 +30,8 @@ const closeFormVisibility = () => {
   />
 
   <main :class="{ 'main_blur': isFormVisible }">
-    <div class="row">
-      <div class="column">
+    <div class="row row_column-reverse">
+      <div class="column column_height-fit">
         <AppCardCircle class="widget">
           <div class="widget__wrapper widget__wrapper_center">
             <h1 class="deg__text">35&deg;C</h1>
@@ -89,7 +90,7 @@ const closeFormVisibility = () => {
     </div>
 
     <div class="row">
-      <div class="column">
+      <div class="column column_height-fit">
         <AppCardRect class="widget">
           <div class="widget__wrapper widget__wrapper_between">
             <p class="widget__label">//humidity</p>
@@ -139,7 +140,14 @@ const closeFormVisibility = () => {
         </AppCardCircle>
       </div>
 
-      <div class="column">
+      <div class="column column_flex-column">
+        <AppButton
+          @toggle-form="toggleFormVisibility"
+          class="button"
+        >
+          [ search location ]
+        </AppButton>
+
         <p class="copyright">
           design / development / abieza ananta
           <br>
@@ -176,6 +184,17 @@ main,
   width: 100%;
   height: 100%;
   display: flex;
+}
+
+.column_flex-column {
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.button {
+  display: none;
+  width: 100%;
+  padding: calc(var(--padding) * 2) calc(var(--padding));
 }
 
 .widget__wrapper {
@@ -227,4 +246,28 @@ main,
   margin-top: auto;
   margin-left: auto;
 }
+
+@media only screen and (max-width: 912px) {
+  main {
+    height: 100%;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+
+  .row_column-reverse {
+    flex-direction: column-reverse;
+  }
+
+  .column_height-fit {
+    height: fit-content;
+  }
+
+  .button {
+    display: unset;
+    height: 25%;
+  }
+}
 </style>
+
