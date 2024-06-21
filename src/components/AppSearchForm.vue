@@ -1,23 +1,47 @@
 <script setup>
 import { ref, defineProps, defineEmits, reactive } from "vue";
 
-const formData = ref({
-  location: "",
-});
-
 const props = defineProps({
   isVisible: Boolean,
 });
 
-const emit = defineEmits(["close-form"]);
+const emit = defineEmits(["close-form"], ["place-data"]);
 
 const closeForm = () => {
   emit("close-form");
 };
 
-const submitForm = () => {
-  console.log("Form submitted with:", formData.value);
-  closeForm();
+const searchTerm = reactive({
+  query: "",
+  timeout: null,
+  results: null,
+});
+
+const handleSearch = () => {
+  clearTimeout(searchTerm.timeout);
+  searchTerm.timeout = setTimeout(async () => {
+    if (searchTerm.query !== "") {
+      const res = await fetch(
+        `http://api.weatherapi.com/v1/search.json?key=d83211265cbf4c1abf290117240906&q=${searchTerm.query}`
+      );
+
+      const data = await res.json();
+      searchTerm.results = data;
+    } else {
+      searchTerm.results = null;
+    }
+  }, 500);
+};
+
+const getWeather = async (id) => {
+  const res = await fetch(
+    `http://api.weatherapi.com/v1/forecast.json?key=d83211265cbf4c1abf290117240906&q=id:${id}&days=3&aqi=no&alerts=no`
+  );
+
+  const data = await res.json();
+  emit("place-data", data);
+  searchTerm.query = "";
+  searchTerm.results = null;
 };
 </script>
 
@@ -32,22 +56,17 @@ const submitForm = () => {
           @click="closeForm"
           class="form__btn form__btn_sm"
         >x</button>
-        <form @submit.prevent="submitForm">
+        <form>
           <p class="form__label">enter new //location</p>
           <input
             type="text"
             class="form__input"
             placeholder="e.g. modena"
             style="color: var(--light);"
-            v-model="formData.location"
+            v-model="searchTerm.query"
+            @input="handleSearch"
           >
-          <div class="form__suggestion__container">
-            <div class="form__suggestion__wrapper">
-              <button class="form__btn form__suggestion">bogor, jawa barat, indonesia</button>
-              <button class="form__btn form__suggestion">bogor, jawa barat, indonesia</button>
-              <button class="form__btn form__suggestion">bogor, jawa barat, indonesia</button>
-            </div>
-          </div>
+
           <button
             class="form__btn form__btn_lg"
             type="submit"
@@ -66,7 +85,19 @@ const submitForm = () => {
             </svg>
           </button>
         </form>
-
+        <div
+          class="form__suggestion__container"
+          v-if="searchTerm.results !== null"
+        >
+          <div class="form__suggestion__wrapper">
+            <button
+              class="form__btn form__suggestion"
+              @click="getWeather(place.id)"
+              v-for="place in searchTerm.results"
+              :key="place.id"
+            >{{ place.name }}, {{ place.region }}, {{ place.country }}</button>
+          </div>
+        </div>
       </div>
     </div>
   </transition>
@@ -183,13 +214,14 @@ form {
 
 .form__suggestion__wrapper {
   position: absolute;
-  width: 100%;
   border-radius: var(--border-radius);
+  width: 100%;
   overflow: hidden;
 }
 
 .form__suggestion {
   width: 100%;
+  text-align: left;
 }
 
 .form__suggestion:hover {

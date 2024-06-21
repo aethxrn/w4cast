@@ -1,5 +1,9 @@
 <script setup>
 import AppButton from "../AppButton.vue";
+
+defineProps({
+  place: Object,
+});
 </script>
 
 <template>
@@ -7,7 +11,7 @@ import AppButton from "../AppButton.vue";
   <div class="widget">
     <div class="widget__wrapper">
       <p class="widget__label">//location</p>
-      <h1 class="widget__heading">jakarta</h1>
+      <h1 class="widget__heading">{{ place.location.name }}</h1>
       <hr>
       <div class="widget__extra">
         <svg

@@ -7,7 +7,7 @@ import AppLocation from "./components/widgets/AppLocation.vue";
 import AppSearchForm from "./components/AppSearchForm.vue";
 import AppButton from "./components/AppButton.vue";
 
-const isFormVisible = ref(false);
+const isFormVisible = ref(true);
 
 const toggleFormVisibility = () => {
   isFormVisible.value = !isFormVisible.value;
@@ -15,6 +15,12 @@ const toggleFormVisibility = () => {
 
 const closeFormVisibility = () => {
   isFormVisible.value = false;
+};
+
+const places = ref([]);
+
+const addPlace = (data) => {
+  places.value.push(data);
 };
 </script>
 
@@ -27,6 +33,7 @@ const closeFormVisibility = () => {
   <AppSearchForm
     :isVisible="isFormVisible"
     @close-form="closeFormVisibility"
+    @place-data="addPlace"
   />
 
   <main>
@@ -85,7 +92,12 @@ const closeFormVisibility = () => {
         </AppCardRect>
       </div>
       <div class="column">
-        <AppLocation @toggle-form="toggleFormVisibility" />
+        <AppLocation
+          v-for="(place, idx) in places"
+          :key="idx"
+          @toggle-form="toggleFormVisibility"
+          :place="place"
+        />
       </div>
     </div>
 
