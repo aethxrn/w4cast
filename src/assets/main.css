@@ -232,7 +232,7 @@ h4 {
 p {
   font-family: "Secondary";
 
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   line-height: 1.5;
 }
 
@@ -290,5 +290,5 @@ input::placeholder {
 
 button {
   font-family: "Secondary";
-  font-size: 1.5rem;
+  font-size: 1.75rem;
 }

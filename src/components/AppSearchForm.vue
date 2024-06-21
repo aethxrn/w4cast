@@ -1,5 +1,5 @@
 <script setup>
-import { ref, defineProps, defineEmits } from "vue";
+import { ref, defineProps, defineEmits, reactive } from "vue";
 
 const formData = ref({
   location: "",
@@ -26,7 +26,6 @@ const submitForm = () => {
     <div
       class="mask"
       v-if="isVisible"
-      @click="closeForm"
     >
       <div class="form__wrapper">
         <button
@@ -42,6 +41,13 @@ const submitForm = () => {
             style="color: var(--light);"
             v-model="formData.location"
           >
+          <div class="form__suggestion__container">
+            <div class="form__suggestion__wrapper">
+              <button class="form__btn form__suggestion">bogor, jawa barat, indonesia</button>
+              <button class="form__btn form__suggestion">bogor, jawa barat, indonesia</button>
+              <button class="form__btn form__suggestion">bogor, jawa barat, indonesia</button>
+            </div>
+          </div>
           <button
             class="form__btn form__btn_lg"
             type="submit"
@@ -60,6 +66,7 @@ const submitForm = () => {
             </svg>
           </button>
         </form>
+
       </div>
     </div>
   </transition>
@@ -96,7 +103,6 @@ const submitForm = () => {
 
   display: flex;
   flex-direction: column;
-  position: absolute;
 }
 
 .form__wrapper_hidden {
@@ -169,6 +175,26 @@ form {
 
 .form__btn__extra {
   width: 2rem;
+}
+
+.form__suggestion__container {
+  position: relative;
+}
+
+.form__suggestion__wrapper {
+  position: absolute;
+  width: 100%;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.form__suggestion {
+  width: 100%;
+}
+
+.form__suggestion:hover {
+  background: var(--dark);
+  color: var(--primary);
 }
 
 @media only screen and (max-width: 912px) {

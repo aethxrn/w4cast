@@ -105,7 +105,8 @@ const closeFormVisibility = () => {
               />
             </svg>
             <div class="widget__info">
-              <h1 class="widget__info__text">50%</h1>
+              <h1 class="widget__info__text">50</h1>
+              <p class="widget__info__text">%</p>
             </div>
           </div>
         </AppCardRect>
@@ -263,6 +264,7 @@ main,
   .button {
     display: unset;
     height: 25%;
+    font-size: 3rem;
   }
 }
 </style>

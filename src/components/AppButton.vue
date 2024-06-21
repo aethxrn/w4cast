@@ -32,4 +32,14 @@ button {
 button:hover {
   transform: scale(1.05);
 }
+
+@media only screen and (max-width: 912px) {
+  button:hover {
+    transform: unset;
+  }
+
+  button:active {
+    transform: scale(1.05);
+  }
+}
 </style>
