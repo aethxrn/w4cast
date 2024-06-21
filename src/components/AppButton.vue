@@ -18,7 +18,7 @@ button {
 
   border: none;
   border-radius: var(--border-radius);
-  padding: calc(var(--padding) / 2) var(--padding);
+  padding: var(--padding) calc(var(--padding) * 2);
 
   background: var(--primary);
   color: var(--dark);

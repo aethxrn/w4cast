@@ -29,7 +29,7 @@ const closeFormVisibility = () => {
     @close-form="closeFormVisibility"
   />
 
-  <main :class="{ 'main_blur': isFormVisible }">
+  <main>
     <div class="row row_column-reverse">
       <div class="column column_height-fit">
         <AppCardCircle class="widget">
@@ -167,10 +167,6 @@ header {
 main {
   flex-direction: column;
   transition: 0.25s ease;
-}
-
-.main_blur {
-  filter: blur(0.5rem) brightness(50%);
 }
 
 main,

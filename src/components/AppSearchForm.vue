@@ -22,59 +22,81 @@ const submitForm = () => {
 </script>
 
 <template>
-  <div
-    v-if="isVisible"
-    class="form__wrapper"
-  >
-    <button
+  <transition name="fade">
+    <div
+      class="mask"
+      v-if="isVisible"
       @click="closeForm"
-      class="form__btn form__btn_sm"
-    >x</button>
-    <form @submit.prevent="submitForm">
-      <p class="form__label">enter new //location</p>
-      <input
-        type="text"
-        class="form__input"
-        placeholder="e.g. modena"
-        style="color: var(--light);"
-        v-model="formData.location"
-      >
-      <button
-        class="form__btn form__btn_lg"
-        type="submit"
-      >
-        search
-        <svg
-          class="form__btn__extra"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 25 25"
-        >
-          <path
-            style="fill:#0f0f0f"
-            d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z"
-            data-name="Right"
-          />
-        </svg>
-      </button>
-    </form>
-  </div>
+    >
+      <div class="form__wrapper">
+        <button
+          @click="closeForm"
+          class="form__btn form__btn_sm"
+        >x</button>
+        <form @submit.prevent="submitForm">
+          <p class="form__label">enter new //location</p>
+          <input
+            type="text"
+            class="form__input"
+            placeholder="e.g. modena"
+            style="color: var(--light);"
+            v-model="formData.location"
+          >
+          <button
+            class="form__btn form__btn_lg"
+            type="submit"
+          >
+            search
+            <svg
+              class="form__btn__extra"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 25 25"
+            >
+              <path
+                style="fill:#0f0f0f"
+                d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z"
+                data-name="Right"
+              />
+            </svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </transition>
+
 </template>
 
 <style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.25s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.mask {
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 15, 15, 0.9);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .form__wrapper {
   width: 25vw;
   height: 15vw;
 
   display: flex;
   flex-direction: column;
-
   position: absolute;
-  z-index: 999;
-  margin: 0;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
 }
 
 .form__wrapper_hidden {
@@ -83,7 +105,7 @@ const submitForm = () => {
 
 form {
   background-color: var(--light);
-  padding: 16px;
+  padding: var(--padding);
   border-radius: var(--border-radius) 0 var(--border-radius)
     var(--border-radius);
 
@@ -96,7 +118,7 @@ form {
   height: fit-content;
   outline: none;
   border: none;
-  padding: 12px;
+  padding: var(--padding);
   background-color: var(--dark);
 
   font-family: "Secondary";
@@ -104,7 +126,7 @@ form {
 
 .form__btn {
   border: none;
-  padding: calc(var(--padding) / 2) var(--padding);
+  padding: var(--padding);
   background-color: var(--primary);
 
   display: flex;
@@ -124,7 +146,7 @@ form {
 }
 
 .form__btn_sm:hover {
-  padding: 8px 8px 16px 8px;
+  padding-bottom: calc(var(--padding) * 2);
 }
 
 .form__btn_lg {
@@ -147,5 +169,32 @@ form {
 
 .form__btn__extra {
   width: 2rem;
+}
+
+@media only screen and (max-width: 912px) {
+  .form__wrapper {
+    width: 90vw;
+    height: fit-content;
+  }
+
+  form {
+    aspect-ratio: 1 / 0.5;
+    justify-content: space-between;
+    padding: calc(var(--padding) * 2);
+  }
+
+  .form__label,
+  .form__btn,
+  .form__input {
+    font-size: 3em;
+  }
+
+  .form__input {
+    padding: calc(var(--padding) * 2);
+  }
+
+  .form__btn__extra {
+    width: 4rem;
+  }
 }
 </style>
