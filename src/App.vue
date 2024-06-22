@@ -17,10 +17,10 @@ const closeFormVisibility = () => {
   isFormVisible.value = false;
 };
 
-const places = ref([]);
+const place = ref(null);
 
 const addPlace = (data) => {
-  places.value.push(data);
+  place.value = data;
 };
 </script>
 
@@ -93,10 +93,9 @@ const addPlace = (data) => {
       </div>
       <div class="column">
         <AppLocation
-          v-for="(place, idx) in places"
+          :place="place"
           :key="idx"
           @toggle-form="toggleFormVisibility"
-          :place="place"
         />
       </div>
     </div>

@@ -11,7 +11,7 @@ defineProps({
   <div class="widget">
     <div class="widget__wrapper">
       <p class="widget__label">//location</p>
-      <h1 class="widget__heading">{{ place.location.name }}</h1>
+      <h1 class="widget__heading">{{ place ? place.location.name : "not found" }}</h1>
       <hr>
       <div class="widget__extra">
         <svg
