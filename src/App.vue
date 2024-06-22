@@ -41,7 +41,7 @@ const addPlace = (data) => {
       <div class="column column_height-fit">
         <AppCardCircle class="widget">
           <div class="widget__wrapper widget__wrapper_center">
-            <h1 class="deg__text">35&deg;C</h1>
+            <h1 class="deg__text">{{ place ? Math.round(place.current.feelslike_c) : "00" }}&deg;C</h1>
           </div>
         </AppCardCircle>
 
@@ -85,7 +85,7 @@ const addPlace = (data) => {
               />
             </svg>
             <div class="widget__info">
-              <h1 class="widget__info__text">24</h1>
+              <h1 class="widget__info__text">{{ place ? Math.round(place.current.wind_kph) : "00" }}</h1>
               <p class="widget__info__text">km/h</p>
             </div>
           </div>
@@ -116,7 +116,7 @@ const addPlace = (data) => {
               />
             </svg>
             <div class="widget__info">
-              <h1 class="widget__info__text">50</h1>
+              <h1 class="widget__info__text">{{ place ? place.current.humidity : "00" }}</h1>
               <p class="widget__info__text">%</p>
             </div>
           </div>
