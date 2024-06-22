@@ -7,7 +7,7 @@ import AppLocation from "./components/widgets/AppLocation.vue";
 import AppSearchForm from "./components/AppSearchForm.vue";
 import AppButton from "./components/AppButton.vue";
 
-const isFormVisible = ref(true);
+const isFormVisible = ref(false);
 
 const toggleFormVisibility = () => {
   isFormVisible.value = !isFormVisible.value;
