@@ -7,6 +7,7 @@ import AppLocation from "./components/widgets/AppLocation.vue";
 import AppSearchForm from "./components/AppSearchForm.vue";
 import AppButton from "./components/AppButton.vue";
 
+import QuestionIcon from "./assets/img/question.svg";
 import SunIcon from "./assets/img/sun.svg";
 import CloudIcon from "./assets/img/cloud.svg";
 import RainIcon from "./assets/img/rain.svg";
@@ -88,14 +89,13 @@ const conditionIconMap = {
 // return icon
 const weatherIconUrl = computed(() => {
   const conditionText = place.value?.current.condition.text;
-  return conditionIconMap[conditionText] || SunIcon; // Default icon if condition text is not found
+  return conditionIconMap[conditionText] || QuestionIcon; // Default icon if condition text is not found
 });
 
 watchEffect(() => {
   if (place.value) {
     weatherIconUrl.value =
-      conditionIconMap[place.value.current.condition.text] ||
-      "./assets/img/sun.svg";
+      conditionIconMap[place.value.current.condition.text] || QuestionIcon;
   }
 });
 </script>
