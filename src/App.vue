@@ -1,11 +1,17 @@
 <script setup>
-import { ref } from "vue";
+import { ref, computed, watchEffect } from "vue";
 
 import AppCardCircle from "./components/widgets/AppCardCirc.vue";
 import AppCardRect from "./components/widgets/AppCardRect.vue";
 import AppLocation from "./components/widgets/AppLocation.vue";
 import AppSearchForm from "./components/AppSearchForm.vue";
 import AppButton from "./components/AppButton.vue";
+
+import SunIcon from "./assets/img/sun.svg";
+import CloudIcon from "./assets/img/cloud.svg";
+import RainIcon from "./assets/img/rain.svg";
+import FogIcon from "./assets/img/fog.svg";
+import ThunderIcon from "./assets/img/thunderstorm.svg";
 
 const isFormVisible = ref(false);
 
@@ -22,6 +28,76 @@ const place = ref(null);
 const addPlace = (data) => {
   place.value = data;
 };
+
+const conditionIconMap = {
+  Sunny: SunIcon,
+  Clear: SunIcon,
+
+  "Partly cloudy": CloudIcon,
+  Cloudy: CloudIcon,
+  Overcast: CloudIcon,
+  "Patchy rain possible": CloudIcon,
+  "Patchy snow possible": CloudIcon,
+  "Patchy sleet possible": CloudIcon,
+  "Patchy freezing drizzle possible": CloudIcon,
+  "Thundery outbreaks possible": CloudIcon,
+
+  Fog: FogIcon,
+  Mist: FogIcon,
+  "Freezing fog": FogIcon,
+  "Blowing snow": FogIcon,
+  Blizzard: FogIcon,
+
+  "Patchy light drizzle": RainIcon,
+  "Light drizzle": RainIcon,
+  "Freezing drizzle": RainIcon,
+  "Heavy freezing drizzle": RainIcon,
+  "Patchy light rain": RainIcon,
+  "Light rain": RainIcon,
+  "Moderate rain at times": RainIcon,
+  "Moderate rain": RainIcon,
+  "Heavy rain at times": RainIcon,
+  "Heavy rain": RainIcon,
+  "Light freezing rain": RainIcon,
+  "Moderate or heavy freezing rain": RainIcon,
+  "Light sleet": RainIcon,
+  "Moderate or heavy sleet": RainIcon,
+  "Light rain shower": RainIcon,
+  "Moderate or heavy rain shower": RainIcon,
+  "Torrential rain shower": RainIcon,
+  "Light sleet showers": RainIcon,
+  "Moderate or heavy sleet showers": RainIcon,
+  "Light showers of ice pellets": RainIcon,
+  "Moderate or heavy showers of ice pellets": RainIcon,
+
+  "Patchy light rain with thunder": ThunderIcon,
+  "Moderate or heavy rain with thunder": ThunderIcon,
+  "Patchy light snow with thunder": ThunderIcon,
+  "Moderate or heavy snow with thunder": ThunderIcon,
+
+  // "Patchy light snow"
+  // "Light snow"
+  // "Patchy moderate snow"
+  // "Moderate snow"
+  // "Heavy snow"
+  // "Ice pellets"
+  //     "Light snow showers"
+  // "Moderate or heavy snow showers"
+};
+
+// return icon
+const weatherIconUrl = computed(() => {
+  const conditionText = place.value?.current.condition.text;
+  return conditionIconMap[conditionText] || SunIcon; // Default icon if condition text is not found
+});
+
+watchEffect(() => {
+  if (place.value) {
+    weatherIconUrl.value =
+      conditionIconMap[place.value.current.condition.text] ||
+      "./assets/img/sun.svg";
+  }
+});
 </script>
 
 <template>
@@ -124,30 +200,12 @@ const addPlace = (data) => {
 
         <AppCardCircle class="widget">
           <div class="widget__wrapper widget__wrapper_center">
-            <svg
+            <img
               class="widget__icon"
-              viewBox="0 0 13.229 13.229"
-              xmlns="http://www.w3.org/2000/svg"
+              :src="weatherIconUrl"
+              alt=""
             >
-              <g style="display:inline">
-                <path
-                  d="m1.803 5.556-.745.882v.882l.745.882H8.78l.744-.882v-.882l-.744-.882Z"
-                  style="fill:var(--dark);stroke-width:.730767"
-                  transform="matrix(1.5625 0 0 1.55421 -1.654 -2.458)"
-                />
-                <path
-                  d="m5.274 3.473-.742 1.213v1.212l.742 1.212h2.18l.714-1.212V4.686l-.713-1.213Z"
-                  style="fill:var(--dark);stroke-width:.478962"
-                  transform="matrix(1.5625 0 0 1.55421 -1.654 -2.458)"
-                />
-                <path
-                  d="m3.255 4.218-.54.882v.882l.54.881H4.84l.52-.881V5.1l-.52-.882Z"
-                  style="fill:var(--dark);stroke-width:.348459"
-                  transform="matrix(1.5625 0 0 1.55421 -1.654 -2.458)"
-                />
-              </g>
-            </svg>
-            <p class="widget__info_asl">cloudy</p>
+            <p class="widget__info_asl">{{ place ? place.current.condition.text : "not found" }}</p>
           </div>
         </AppCardCircle>
       </div>
