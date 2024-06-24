@@ -13,6 +13,7 @@ import CloudIcon from "./assets/icons/cloud.svg";
 import RainIcon from "./assets/icons/rain.svg";
 import FogIcon from "./assets/icons/fog.svg";
 import ThunderIcon from "./assets/icons/thunderstorm.svg";
+import SnowIcon from "./assets/icons/snow.svg";
 
 const isFormVisible = ref(false);
 

@@ -11,8 +11,6 @@ defineProps({
   <div class="widget">
     <div class="widget__wrapper">
       <p class="widget__label">//location</p>
-      <h1 class="widget__heading">{{ place ? place.location.name : "not found" }}</h1>
-      <hr>
       <div class="widget__extra">
         <svg
           viewBox="0 0 13.229 13.229"
@@ -31,7 +29,10 @@ defineProps({
         </svg>
       </div>
     </div>
-
+    <div class="widget__wrapper widget__wrapper_column">
+      <h1 class="widget__heading">{{ place ? place.location.name : "not found" }}</h1>
+      <hr>
+    </div>
     <AppButton
       @toggle-form="$emit('toggle-form')"
       class="widget__button"
@@ -65,19 +66,21 @@ hr {
 
 .widget__wrapper {
   display: flex;
-  flex-direction: column;
+
   gap: var(--gap);
 
-  position: relative;
+  justify-content: space-between;
+  height: fit-content;
+}
+
+.widget__wrapper_column {
+  flex-direction: column;
 }
 
 .widget__extra {
   width: 6rem;
   padding: calc(var(--padding) / 4);
   aspect-ratio: 1 / 1;
-
-  position: absolute;
-  right: 0;
 }
 
 .widget__button {
@@ -86,6 +89,10 @@ hr {
 }
 
 @media only screen and (max-width: 912px) {
+  .widget {
+    justify-content: space-between;
+  }
+
   .widget__button {
     display: none;
   }
