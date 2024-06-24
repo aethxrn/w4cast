@@ -5,7 +5,7 @@ const props = defineProps({
   isVisible: Boolean,
 });
 
-const emit = defineEmits(["close-form"], ["place-data"]);
+const emit = defineEmits(["place-data"]["close-form"]);
 
 const closeForm = () => {
   emit("close-form");
@@ -42,7 +42,7 @@ const getWeather = async (id) => {
   emit("place-data", data);
   searchTerm.query = "";
   searchTerm.results = null;
-  closeForm();
+  emit("close-form");
 };
 </script>
 
@@ -60,6 +60,7 @@ const getWeather = async (id) => {
         <form>
           <p class="form__label">enter new //location</p>
           <input
+            name="location"
             type="text"
             class="form__input"
             placeholder="e.g. modena"

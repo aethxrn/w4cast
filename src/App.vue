@@ -34,6 +34,7 @@ const conditionIconMap = {
   Sunny: SunIcon,
   Clear: SunIcon,
 
+  "Partly Cloudy": CloudIcon,
   "Partly cloudy": CloudIcon,
   Cloudy: CloudIcon,
   Overcast: CloudIcon,
@@ -70,6 +71,7 @@ const conditionIconMap = {
   "Moderate or heavy sleet showers": RainIcon,
   "Light showers of ice pellets": RainIcon,
   "Moderate or heavy showers of ice pellets": RainIcon,
+  "Patchy rain nearby": RainIcon,
 
   "Patchy light rain with thunder": ThunderIcon,
   "Moderate or heavy rain with thunder": ThunderIcon,
@@ -170,7 +172,6 @@ watchEffect(() => {
       <div class="column">
         <AppLocation
           :place="place"
-          :key="idx"
           @toggle-form="toggleFormVisibility"
         />
       </div>
@@ -295,7 +296,7 @@ main,
 
 .widget__info_asl {
   position: absolute;
-  margin-top: 50%;
+  margin-top: 75%;
 }
 
 .widget__icon {
