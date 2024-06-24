@@ -30,7 +30,7 @@ defineProps({
       </div>
     </div>
     <div class="widget__wrapper widget__wrapper_column">
-      <h1 class="widget__heading">{{ place ? place.location.name : "sumatera barat " }}</h1>
+      <h1 class="widget__heading">{{ place ? place.location.name : "unassigned" }}</h1>
       <hr>
     </div>
     <AppButton
