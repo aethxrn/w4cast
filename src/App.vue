@@ -7,12 +7,12 @@ import AppLocation from "./components/widgets/AppLocation.vue";
 import AppSearchForm from "./components/AppSearchForm.vue";
 import AppButton from "./components/AppButton.vue";
 
-import QuestionIcon from "./assets/img/question.svg";
-import SunIcon from "./assets/img/sun.svg";
-import CloudIcon from "./assets/img/cloud.svg";
-import RainIcon from "./assets/img/rain.svg";
-import FogIcon from "./assets/img/fog.svg";
-import ThunderIcon from "./assets/img/thunderstorm.svg";
+import QuestionIcon from "./assets/icons/question.svg";
+import SunIcon from "./assets/icons/sun.svg";
+import CloudIcon from "./assets/icons/cloud.svg";
+import RainIcon from "./assets/icons/rain.svg";
+import FogIcon from "./assets/icons/fog.svg";
+import ThunderIcon from "./assets/icons/thunderstorm.svg";
 
 const isFormVisible = ref(false);
 

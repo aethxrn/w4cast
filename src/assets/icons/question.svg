@@ -1,0 +1,8 @@
+<svg width="50" height="50" viewBox="0 0 13.229 13.229" xmlns="http://www.w3.org/2000/svg">
+    <path style="fill:#0f0f0f;fill-opacity:1;stroke-width:0" d="M6.24 9.79h.529v.529H6.24z"/>
+    <path style="fill:#0f0f0f;fill-opacity:1;stroke-width:0" d="M6.334 8.149h.529v1.102h-.529z" transform="translate(-.094)"/>
+    <path style="fill:#0f0f0f;fill-opacity:1;stroke-width:0" transform="rotate(-45 -.047 .113)" d="M-1.283 6.801h.529v1.102h-.529z"/>
+    <path style="fill:#0f0f0f;fill-opacity:1;stroke-width:0" transform="rotate(45 -.047 -.113)" d="M10.241-2.685h.529v3.969h-.529z"/>
+    <path style="fill:#0f0f0f;fill-opacity:1;stroke-width:0" transform="scale(-1 1) rotate(45 .047 .113)" d="M-2.685 6.801h.529v3.969h-.529z"/>
+    <path style="fill:#0f0f0f;fill-opacity:1;stroke-width:0" transform="rotate(45 -.047 -.113)" d="M6.801-2.685h.529v3.969h-.529z"/>
+</svg>
