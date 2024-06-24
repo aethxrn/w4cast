@@ -30,7 +30,7 @@ defineProps({
       </div>
     </div>
     <div class="widget__wrapper widget__wrapper_column">
-      <h1 class="widget__heading">{{ place ? place.location.name : "not found" }}</h1>
+      <h1 class="widget__heading">{{ place ? place.location.name : "sumatera barat " }}</h1>
       <hr>
     </div>
     <AppButton
@@ -86,6 +86,10 @@ hr {
 .widget__button {
   margin-top: auto;
   margin-left: auto;
+}
+
+.widget__heading {
+  line-height: 0.9;
 }
 
 @media only screen and (max-width: 912px) {

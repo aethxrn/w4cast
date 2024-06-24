@@ -69,7 +69,7 @@ const getWeather = async (id) => {
             @input="handleSearch"
           >
 
-          <button
+          <!-- <button
             class="form__btn form__btn_lg"
             type="submit"
           >
@@ -85,7 +85,7 @@ const getWeather = async (id) => {
                 data-name="Right"
               />
             </svg>
-          </button>
+          </button> -->
         </form>
         <div
           class="form__suggestion__container"

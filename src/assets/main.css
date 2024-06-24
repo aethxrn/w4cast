@@ -185,7 +185,6 @@ main,
   margin: 0 auto;
   max-width: 192rem;
 
-
   width: 100%;
   display: flex;
 
@@ -197,15 +196,14 @@ main,
 #app {
   height: 100%;
   flex-direction: column;
-} 
-
+}
 
 /* Style text */
 h1 {
   font-family: "Primary";
 
   font-size: 10rem;
-  line-height: 0.85;
+  line-height: 0.8;
 }
 
 h2 {

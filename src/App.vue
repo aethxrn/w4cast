@@ -79,14 +79,14 @@ const conditionIconMap = {
   "Patchy light snow with thunder": ThunderIcon,
   "Moderate or heavy snow with thunder": ThunderIcon,
 
-  // "Patchy light snow"
-  // "Light snow"
-  // "Patchy moderate snow"
-  // "Moderate snow"
-  // "Heavy snow"
-  // "Ice pellets"
-  //     "Light snow showers"
-  // "Moderate or heavy snow showers"
+  "Patchy light snow": SnowIcon,
+  "Light snow": SnowIcon,
+  "Patchy moderate snow": SnowIcon,
+  "Moderate snow": SnowIcon,
+  "Heavy snow": SnowIcon,
+  "Ice pellets": SnowIcon,
+  "Light snow showers": SnowIcon,
+  "Moderate or heavy snow showers": SnowIcon,
 };
 
 // return icon
@@ -237,6 +237,7 @@ header {
 }
 
 main {
+  margin: auto;
   flex-direction: column;
   transition: 0.25s ease;
 }
