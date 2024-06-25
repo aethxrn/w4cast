@@ -4,8 +4,8 @@ import { ref, computed, watchEffect } from "vue";
 import AppCardCircle from "./components/widgets/AppCardCirc.vue";
 import AppCardRect from "./components/widgets/AppCardRect.vue";
 import AppLocation from "./components/widgets/AppLocation.vue";
-import AppModal from "./components/AppModal.vue";
 import AppButton from "./components/AppButton.vue";
+import AppModal from "./components/AppModal.vue";
 
 import QuestionIcon from "./assets/icons/question.svg";
 import SunIcon from "./assets/icons/sun.svg";
@@ -16,24 +16,25 @@ import ThunderIcon from "./assets/icons/thunderstorm.svg";
 import SnowIcon from "./assets/icons/snow.svg";
 
 const isModalVisible = ref(false);
-
 const displayModal = () => {
   isModalVisible.value = !isModalVisible.value;
 };
-
 const hideModal = () => {
   isModalVisible.value = false;
 };
 
 const place = ref(null);
-
 const addPlace = (data) => {
   place.value = data;
 };
 
 const conditionIconMap = {
+  //if weather condition : clear
+
   Sunny: SunIcon,
   Clear: SunIcon,
+
+  //if weather condition : cloudy
 
   "Partly Cloudy": CloudIcon,
   "Partly cloudy": CloudIcon,
@@ -45,11 +46,15 @@ const conditionIconMap = {
   "Patchy freezing drizzle possible": CloudIcon,
   "Thundery outbreaks possible": CloudIcon,
 
+  //if weather condition : fog
+
   Fog: FogIcon,
   Mist: FogIcon,
   "Freezing fog": FogIcon,
   "Blowing snow": FogIcon,
   Blizzard: FogIcon,
+
+  //if weather condition : rainy
 
   "Patchy light drizzle": RainIcon,
   "Light drizzle": RainIcon,
@@ -74,10 +79,14 @@ const conditionIconMap = {
   "Moderate or heavy showers of ice pellets": RainIcon,
   "Patchy rain nearby": RainIcon,
 
+  //if weather condition : thunderstorm
+
   "Patchy light rain with thunder": ThunderIcon,
   "Moderate or heavy rain with thunder": ThunderIcon,
   "Patchy light snow with thunder": ThunderIcon,
   "Moderate or heavy snow with thunder": ThunderIcon,
+
+  //if weather condition : snowy
 
   "Patchy light snow": SnowIcon,
   "Light snow": SnowIcon,
@@ -89,10 +98,9 @@ const conditionIconMap = {
   "Moderate or heavy snow showers": SnowIcon,
 };
 
-// return icon
 const weatherIconUrl = computed(() => {
   const conditionText = place.value?.current.condition.text;
-  return conditionIconMap[conditionText] || QuestionIcon; // Default icon if condition text is not found
+  return conditionIconMap[conditionText] || QuestionIcon;
 });
 
 watchEffect(() => {
@@ -109,12 +117,6 @@ watchEffect(() => {
     <p class="header__text">w4cast v1.0</p>
   </header>
 
-  <AppModal
-    :isVisible="isModalVisible"
-    @close-modal="hideModal"
-    @place-data="addPlace"
-  />
-
   <main>
     <div class="row row_column-reverse">
       <div class="column column_height-fit">
@@ -127,6 +129,7 @@ watchEffect(() => {
         <AppCardRect class="widget">
           <div class="widget__wrapper widget__wrapper_between">
             <p class="widget__label">//wind speed</p>
+
             <svg
               class="widget__icon"
               viewBox="0 0 13.229 13.229"
@@ -163,6 +166,7 @@ watchEffect(() => {
                 d="M9.257-.679h1.852v.397H9.257z"
               />
             </svg>
+
             <div class="widget__info">
               <h1 class="widget__info__text">{{ place ? Math.round(place.current.wind_kph) : "00" }}</h1>
               <p class="widget__info__text">km/h</p>
@@ -170,6 +174,7 @@ watchEffect(() => {
           </div>
         </AppCardRect>
       </div>
+
       <div class="column">
         <AppLocation
           :place="place"
@@ -183,6 +188,7 @@ watchEffect(() => {
         <AppCardRect class="widget">
           <div class="widget__wrapper widget__wrapper_between">
             <p class="widget__label">//humidity</p>
+
             <svg
               class="widget__icon"
               viewBox="0 0 13.229 13.229"
@@ -193,6 +199,7 @@ watchEffect(() => {
                 d="M3.859 6.844 6.615 2.94 9.37 6.844v1.723L7.9 10.289H5.328l-1.47-1.722Z"
               />
             </svg>
+
             <div class="widget__info">
               <h1 class="widget__info__text">{{ place ? place.current.humidity : "00" }}</h1>
               <p class="widget__info__text">%</p>
@@ -205,7 +212,6 @@ watchEffect(() => {
             <img
               class="widget__icon"
               :src="weatherIconUrl"
-              alt=""
             >
             <p class="widget__info_asl">{{ place ? place.current.condition.text : "not found" }}</p>
           </div>
@@ -214,8 +220,8 @@ watchEffect(() => {
 
       <div class="column column_flex-column">
         <AppButton
+          class="app-button"
           @open-modal="displayModal"
-          class="button"
         >
           [ search location ]
         </AppButton>
@@ -228,6 +234,12 @@ watchEffect(() => {
       </div>
     </div>
   </main>
+
+  <AppModal
+    :isVisible="isModalVisible"
+    @place-data="addPlace"
+    @close-modal="hideModal"
+  />
 
 </template>
 
@@ -258,12 +270,6 @@ main,
 .column_flex-column {
   flex-direction: column;
   justify-content: space-between;
-}
-
-.button {
-  display: none;
-  width: 100%;
-  padding: calc(var(--padding) * 2) calc(var(--padding));
 }
 
 .widget__wrapper {
@@ -303,12 +309,20 @@ main,
 
 .widget__icon {
   width: 50%;
+
   margin: 0;
   position: absolute;
   top: 50%;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+}
+
+.app-button {
+  display: none;
+
+  width: 100%;
+  padding: calc(var(--padding) * 2) calc(var(--padding));
 }
 
 .copyright {
@@ -333,7 +347,7 @@ main,
     height: fit-content;
   }
 
-  .button {
+  .app-button {
     display: unset;
     height: 25%;
     font-size: 3rem;
