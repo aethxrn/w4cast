@@ -98,16 +98,16 @@ const conditionIconMap = {
   "Moderate or heavy snow showers": SnowIcon,
 };
 
-const weatherIconUrl = computed(() => {
-  const conditionText = place.value?.current.condition.text;
-  return conditionIconMap[conditionText] || QuestionIcon;
-});
-
-watchEffect(() => {
-  if (place.value) {
-    weatherIconUrl.value =
-      conditionIconMap[place.value.current.condition.text] || QuestionIcon;
+const weatherIcon = computed(() => {
+  if (
+    place.value &&
+    place.value.current &&
+    place.value.current.condition &&
+    place.value.current.condition.text
+  ) {
+    return conditionIconMap[place.value.current.condition.text] || QuestionIcon;
   }
+  return QuestionIcon; // Default icon if condition text is not found
 });
 </script>
 
@@ -211,7 +211,7 @@ watchEffect(() => {
           <div class="widget__wrapper widget__wrapper_center">
             <img
               class="widget__icon"
-              :src="weatherIconUrl"
+              :src="weatherIcon"
             >
             <p class="widget__info_asl">{{ place ? place.current.condition.text : "not found" }}</p>
           </div>
