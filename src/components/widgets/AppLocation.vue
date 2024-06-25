@@ -8,10 +8,10 @@ defineProps({
 
 <template>
 
-  <div class="widget">
-    <div class="widget__wrapper">
-      <p class="widget__label">//location</p>
-      <div class="widget__extra">
+  <div class="card">
+    <div class="card__wrapper">
+      <p class="card__label">//location</p>
+      <div class="card__extra">
         <svg
           viewBox="0 0 13.229 13.229"
           xmlns="http://www.w3.org/2000/svg"
@@ -29,13 +29,15 @@ defineProps({
         </svg>
       </div>
     </div>
-    <div class="widget__wrapper widget__wrapper_column">
-      <h1 class="widget__heading">{{ place ? place.location.name : "unassigned" }}</h1>
+
+    <div class="card__wrapper card__wrapper_column">
+      <h1 class="card__heading">{{ place ? place.location.name : "unassigned" }}</h1>
       <hr>
     </div>
+
     <AppButton
       @open-modal="$emit('open-modal')"
-      class="widget__button"
+      class="card__button"
     >
       [ search location ]
     </AppButton>
@@ -48,14 +50,14 @@ hr {
   width: 100%;
 }
 
-.widget,
-.widget__extra,
-.widget__btn {
+.card,
+.card__extra,
+.card__btn {
   border: 1px solid var(--light);
   border-radius: var(--border-radius);
 }
 
-.widget {
+.card {
   width: 100%;
   height: 100%;
   padding: var(--padding);
@@ -64,40 +66,39 @@ hr {
   flex-direction: column;
 }
 
-.widget__wrapper {
-  display: flex;
-
-  gap: var(--gap);
-
-  justify-content: space-between;
+.card__wrapper {
   height: fit-content;
+
+  display: flex;
+  justify-content: space-between;
+  gap: var(--gap);
 }
 
-.widget__wrapper_column {
+.card__wrapper_column {
   flex-direction: column;
 }
 
-.widget__extra {
+.card__extra {
   width: 6rem;
   padding: calc(var(--padding) / 4);
   aspect-ratio: 1 / 1;
 }
 
-.widget__button {
+.card__heading {
+  line-height: 0.9;
+}
+
+.card__button {
   margin-top: auto;
   margin-left: auto;
 }
 
-.widget__heading {
-  line-height: 0.9;
-}
-
 @media only screen and (max-width: 912px) {
-  .widget {
+  .card {
     justify-content: space-between;
   }
 
-  .widget__button {
+  .card__button {
     display: none;
   }
 }

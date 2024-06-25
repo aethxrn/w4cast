@@ -44,6 +44,7 @@ const getWeather = async (id) => {
 </script>
 
 <template>
+
   <transition name="fade">
     <div
       class="mask"
