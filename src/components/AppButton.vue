@@ -1,13 +1,13 @@
 <script setup>
-const emit = defineEmits(["toggle-form"]);
+const emit = defineEmits(["open-modal"]);
 
-const toggleForm = () => {
-  emit("toggle-form");
+const openModal = () => {
+  emit("open-modal");
 };
 </script>
 
 <template>
-  <button @click="toggleForm">
+  <button @click="openModal">
     <slot></slot>
   </button>
 </template>
@@ -24,7 +24,6 @@ button {
   color: var(--dark);
 
   text-transform: uppercase;
-
   transition: 0.1s ease;
   cursor: pointer;
 }

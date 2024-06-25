@@ -1,14 +1,13 @@
 <script setup>
-import { ref, defineProps, defineEmits, reactive } from "vue";
+import { defineProps, defineEmits, reactive } from "vue";
 
 const props = defineProps({
   isVisible: Boolean,
 });
 
-const emit = defineEmits(["place-data"]["close-form"]);
-
-const closeForm = () => {
-  emit("close-form");
+const emit = defineEmits(["place-data"]["close-modal"]);
+const closeModal = () => {
+  emit("close-modal");
 };
 
 const searchTerm = reactive({
@@ -24,7 +23,6 @@ const handleSearch = () => {
       const res = await fetch(
         `http://api.weatherapi.com/v1/search.json?key=d83211265cbf4c1abf290117240906&q=${searchTerm.query}`
       );
-
       const data = await res.json();
       searchTerm.results = data;
     } else {
@@ -37,12 +35,11 @@ const getWeather = async (id) => {
   const res = await fetch(
     `http://api.weatherapi.com/v1/forecast.json?key=d83211265cbf4c1abf290117240906&q=id:${id}&days=3&aqi=no&alerts=no`
   );
-
   const data = await res.json();
   emit("place-data", data);
   searchTerm.query = "";
   searchTerm.results = null;
-  emit("close-form");
+  emit("close-modal");
 };
 </script>
 
@@ -52,48 +49,34 @@ const getWeather = async (id) => {
       class="mask"
       v-if="isVisible"
     >
-      <div class="form__wrapper">
+      <div class="modal">
         <button
-          @click="closeForm"
-          class="form__btn form__btn_sm"
+          @click="closeModal"
+          class="modal__btn modal__btn_sm"
         >x</button>
+
         <form>
-          <p class="form__label">enter new //location</p>
+          <p class="modal__label">enter new //location</p>
+
           <input
-            name="location"
             type="text"
-            class="form__input"
+            name="location"
             placeholder="e.g. modena"
+            autocomplete="off"
+            class="modal__input"
             style="color: var(--light);"
             v-model="searchTerm.query"
             @input="handleSearch"
           >
-
-          <!-- <button
-            class="form__btn form__btn_lg"
-            type="submit"
-          >
-            search
-            <svg
-              class="form__btn__extra"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 25 25"
-            >
-              <path
-                style="fill:#0f0f0f"
-                d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z"
-                data-name="Right"
-              />
-            </svg>
-          </button> -->
         </form>
+
         <div
-          class="form__suggestion__container"
+          class="modal__suggestion__container"
           v-if="searchTerm.results !== null"
         >
-          <div class="form__suggestion__wrapper">
+          <div class="modal__suggestion__wrapper">
             <button
-              class="form__btn form__suggestion"
+              class="modal__btn modal__suggestion"
               @click="getWeather(place.id)"
               v-for="place in searchTerm.results"
               :key="place.id"
@@ -107,39 +90,28 @@ const getWeather = async (id) => {
 </template>
 
 <style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.25s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-
 .mask {
   width: 100%;
   height: 100%;
+
   background: rgba(15, 15, 15, 0.9);
+
   position: absolute;
   left: 0;
   top: 0;
   z-index: 999;
+
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.form__wrapper {
+.modal {
   width: 25vw;
-  height: 15vw;
+  height: fit-content;
 
   display: flex;
   flex-direction: column;
-}
-
-.form__wrapper_hidden {
-  visibility: hidden;
 }
 
 form {
@@ -153,8 +125,9 @@ form {
   gap: var(--gap);
 }
 
-.form__input {
+.modal__input {
   height: fit-content;
+
   outline: none;
   border: none;
   padding: var(--padding);
@@ -163,7 +136,12 @@ form {
   font-family: "Secondary";
 }
 
-.form__btn {
+.modal__btn,
+.modal__label {
+  color: var(--dark);
+}
+
+.modal__btn {
   border: none;
   padding: var(--padding);
   background-color: var(--primary);
@@ -176,7 +154,7 @@ form {
   transition: 0.1s ease;
 }
 
-.form__btn_sm {
+.modal__btn_sm {
   width: 25%;
   border-radius: var(--border-radius) var(--border-radius) 0 0;
 
@@ -184,76 +162,74 @@ form {
   justify-content: center;
 }
 
-.form__btn_sm:hover {
+.modal__btn_sm:hover {
   padding-bottom: calc(var(--padding) * 2);
 }
 
-.form__btn_lg {
-  width: 50%;
-  border-radius: var(--border-radius);
-
-  margin-left: auto;
-  justify-content: end;
-}
-
-.form__btn_lg:hover {
-  width: 55%;
-  padding-right: calc(var(--padding) * 2);
-}
-
-.form__btn,
-.form__label {
-  color: var(--dark);
-}
-
-.form__btn__extra {
+.modal__btn__extra {
   width: 2rem;
 }
 
-.form__suggestion__container {
+.modal__suggestion__container {
   position: relative;
 }
 
-.form__suggestion__wrapper {
-  position: absolute;
-  border-radius: var(--border-radius);
+.modal__suggestion__wrapper {
   width: 100%;
+  border-radius: var(--border-radius);
+  position: absolute;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
-.form__suggestion {
+.modal__suggestion {
   width: 100%;
   text-align: left;
 }
 
-.form__suggestion:hover {
+.modal__suggestion:hover {
   background: var(--dark);
   color: var(--primary);
 }
 
+/* animation  */
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.25s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+/* animation  */
+
 @media only screen and (max-width: 912px) {
-  .form__wrapper {
+  .modal {
     width: 90vw;
-    height: fit-content;
   }
 
   form {
     aspect-ratio: 1 / 0.5;
-    justify-content: space-between;
     padding: calc(var(--padding) * 2);
+    justify-content: space-between;
   }
 
-  .form__label,
-  .form__btn,
-  .form__input {
+  .modal__label,
+  .modal__btn,
+  .modal__input {
     font-size: 3em;
   }
 
-  .form__input {
+  .modal__input {
     padding: calc(var(--padding) * 2);
   }
 
-  .form__btn__extra {
+  .modal__btn__extra {
     width: 4rem;
   }
 }

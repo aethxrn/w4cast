@@ -34,7 +34,7 @@ defineProps({
       <hr>
     </div>
     <AppButton
-      @toggle-form="$emit('toggle-form')"
+      @open-modal="$emit('open-modal')"
       class="widget__button"
     >
       [ search location ]

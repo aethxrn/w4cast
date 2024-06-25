@@ -4,7 +4,7 @@ import { ref, computed, watchEffect } from "vue";
 import AppCardCircle from "./components/widgets/AppCardCirc.vue";
 import AppCardRect from "./components/widgets/AppCardRect.vue";
 import AppLocation from "./components/widgets/AppLocation.vue";
-import AppSearchForm from "./components/AppSearchForm.vue";
+import AppModal from "./components/AppModal.vue";
 import AppButton from "./components/AppButton.vue";
 
 import QuestionIcon from "./assets/icons/question.svg";
@@ -15,14 +15,14 @@ import FogIcon from "./assets/icons/fog.svg";
 import ThunderIcon from "./assets/icons/thunderstorm.svg";
 import SnowIcon from "./assets/icons/snow.svg";
 
-const isFormVisible = ref(false);
+const isModalVisible = ref(false);
 
-const toggleFormVisibility = () => {
-  isFormVisible.value = !isFormVisible.value;
+const displayModal = () => {
+  isModalVisible.value = !isModalVisible.value;
 };
 
-const closeFormVisibility = () => {
-  isFormVisible.value = false;
+const hideModal = () => {
+  isModalVisible.value = false;
 };
 
 const place = ref(null);
@@ -109,9 +109,9 @@ watchEffect(() => {
     <p class="header__text">w4cast v1.0</p>
   </header>
 
-  <AppSearchForm
-    :isVisible="isFormVisible"
-    @close-form="closeFormVisibility"
+  <AppModal
+    :isVisible="isModalVisible"
+    @close-modal="hideModal"
     @place-data="addPlace"
   />
 
@@ -173,7 +173,7 @@ watchEffect(() => {
       <div class="column">
         <AppLocation
           :place="place"
-          @toggle-form="toggleFormVisibility"
+          @open-modal="displayModal"
         />
       </div>
     </div>
@@ -214,7 +214,7 @@ watchEffect(() => {
 
       <div class="column column_flex-column">
         <AppButton
-          @toggle-form="toggleFormVisibility"
+          @open-modal="displayModal"
           class="button"
         >
           [ search location ]
