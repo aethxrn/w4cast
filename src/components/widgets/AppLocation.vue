@@ -10,7 +10,7 @@ defineProps({
 
   <div class="card">
     <div class="card__wrapper">
-      <p class="card__label">//location</p>
+      <p class="card__label">//Location</p>
       <div class="card__extra">
         <svg
           viewBox="0 0 13.229 13.229"
@@ -39,7 +39,7 @@ defineProps({
       @open-modal="$emit('open-modal')"
       class="card__button"
     >
-      [ search location ]
+      [ Search Location ]
     </AppButton>
   </div>
 

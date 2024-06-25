@@ -128,7 +128,7 @@ const weatherIcon = computed(() => {
 
         <AppCardRect class="widget">
           <div class="widget__wrapper widget__wrapper_between">
-            <p class="widget__label">//wind speed</p>
+            <p class="widget__label">//Wind Speed</p>
 
             <svg
               class="widget__icon"
@@ -187,7 +187,7 @@ const weatherIcon = computed(() => {
       <div class="column column_height-fit">
         <AppCardRect class="widget">
           <div class="widget__wrapper widget__wrapper_between">
-            <p class="widget__label">//humidity</p>
+            <p class="widget__label">//Humidity</p>
 
             <svg
               class="widget__icon"
@@ -223,13 +223,13 @@ const weatherIcon = computed(() => {
           class="app-button"
           @open-modal="displayModal"
         >
-          [ search location ]
+          [ Search Location ]
         </AppButton>
 
         <p class="copyright">
-          design / development / abieza ananta
+          Design / Development / Abieza Ananta
           <br>
-          [C]2024 abieza ananta
+          [C]2024 Abieza Ananta
         </p>
       </div>
     </div>
