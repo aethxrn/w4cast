@@ -7,9 +7,11 @@ const openModal = () => {
 </script>
 
 <template>
+
   <button @click="openModal">
     <slot></slot>
   </button>
+
 </template>
 
 <style scoped>
