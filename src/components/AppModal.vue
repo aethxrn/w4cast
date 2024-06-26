@@ -95,6 +95,7 @@ const getWeather = async (id) => {
   width: 100%;
   height: 100%;
 
+  padding: calc(var(--padding) * 2);
   background: rgba(15, 15, 15, 0.9);
 
   position: absolute;
@@ -177,22 +178,24 @@ form {
 
 .modal__suggestion__wrapper {
   width: 100%;
+
   border-radius: var(--border-radius);
-  position: absolute;
   overflow: hidden;
+  position: absolute;
+  margin-top: var(--gap);
+
   display: flex;
   flex-direction: column;
-  gap: 2px;
 }
 
 .modal__suggestion {
   width: 100%;
   text-align: left;
+  background-color: var(--light);
 }
 
 .modal__suggestion:hover {
-  background: var(--dark);
-  color: var(--primary);
+  background: var(--primary);
 }
 
 /* animation  */
@@ -211,13 +214,17 @@ form {
 
 @media only screen and (max-width: 912px) {
   .modal {
-    width: 90vw;
+    width: 100%;
   }
 
   form {
     aspect-ratio: 1 / 0.5;
-    padding: calc(var(--padding) * 2);
     justify-content: space-between;
+  }
+
+  form,
+  .modal__btn {
+    padding: calc(var(--padding) * 2);
   }
 
   .modal__label,

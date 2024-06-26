@@ -17,7 +17,7 @@
   --dark: #0f0f0f;
   --gray: #252525;
   --primary: #dc5f00;
-  --border-radius: 1rem;
+  --border-radius: 0.5rem;
   --padding: 1rem;
   --gap: 2rem;
 }
@@ -241,7 +241,7 @@ a {
 
 span {
   font-family: "Secondary";
-  font-size: 1.25rem;
+  font-size: 1.75rem;
   line-height: 1.5;
 }
 

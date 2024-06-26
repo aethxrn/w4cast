@@ -326,6 +326,8 @@ main,
 }
 
 .copyright {
+  text-align: right;
+
   margin-top: auto;
   margin-left: auto;
 }
