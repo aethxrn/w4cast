@@ -1,17 +1,17 @@
 import { createRouter, createWebHistory } from "vue-router";
-import App from "./App.vue";
-import NotFound from "./components/NotFound.vue";
+import Index from "./pages/Index.vue";
+import Error from "./pages/Error.vue";
 
 const routes = [
   {
     path: "/",
-    name: "index",
-    component: App,
+    name: "home",
+    component: Index,
   },
   {
     path: "/:pathMatch(.*)*",
-    name: "not-found",
-    component: NotFound,
+    name: "error",
+    component: Error,
   },
 ];
 
