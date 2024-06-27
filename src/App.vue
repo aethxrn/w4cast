@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, watchEffect } from "vue";
+import { ref, computed } from "vue";
 
 import AppCardCircle from "./components/widgets/AppCardCirc.vue";
 import AppCardRect from "./components/widgets/AppCardRect.vue";
@@ -107,7 +107,7 @@ const weatherIcon = computed(() => {
   ) {
     return conditionIconMap[place.value.current.condition.text] || QuestionIcon;
   }
-  return QuestionIcon; // Default icon if condition text is not found
+  return QuestionIcon; // Default icon if weather condition text is not found
 });
 </script>
 
@@ -177,6 +177,7 @@ const weatherIcon = computed(() => {
 
       <div class="column">
         <AppLocation
+          class="widget"
           :place="place"
           @open-modal="displayModal"
         />
@@ -272,6 +273,10 @@ main,
   justify-content: space-between;
 }
 
+.widget {
+  animation: scale 1s ease;
+}
+
 .widget__wrapper {
   width: 100%;
   height: 100%;
@@ -331,6 +336,20 @@ main,
   margin-top: auto;
   margin-left: auto;
 }
+
+/* animation  */
+
+@keyframes scale {
+  0% {
+    transform: scale(0.9);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* animation  */
 
 @media only screen and (max-width: 912px) {
   main {
