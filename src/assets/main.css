@@ -208,20 +208,6 @@ main,
   animation: fade-in 1s ease;
 }
 
-@media all and (min-width: 540px) {
-  main,
-  .index,
-  .error,
-  #app {
-    overflow: unset;
-    height: fit-content;
-  }
-
-  .copyright {
-    display: none;
-  }
-}
-
 /* Style text */
 h1 {
   font-family: "Primary";
@@ -311,8 +297,15 @@ input::placeholder {
 }
 
 .app-button {
-  font-family: "Secondary";
+  width: 100%;
+
   font-size: 1.75rem;
+  font-family: "Secondary";
+}
+
+.router-link {
+  width: 100%;
+  text-decoration: none;
 }
 
 /* animtion  */

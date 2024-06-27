@@ -42,9 +42,14 @@ defineProps({
           Search Location
         </AppButton>
 
-        <AppButton class="app-button">
-          Forecast - Impending
-        </AppButton>
+        <router-link
+          class="router-link"
+          to="/forecast"
+        >
+          <AppButton class="app-button">
+            Forecast - Impending
+          </AppButton>
+        </router-link>
       </div>
     </div>
   </div>
@@ -93,11 +98,6 @@ hr {
 
 .card__heading {
   line-height: 0.9;
-}
-
-.card__button {
-  margin-top: auto;
-  margin-left: auto;
 }
 
 @media only screen and (max-width: 912px) {

@@ -223,9 +223,14 @@ const weatherIcon = computed(() => {
           Search Location
         </AppButton>
 
-        <AppButton class="app-button">
-          Forecast - Impending
-        </AppButton>
+        <router-link
+          to="/forecast"
+          class="router-link"
+        >
+          <AppButton class="app-button">
+            Forecast - Impending
+          </AppButton>
+        </router-link>
       </div>
     </div>
   </div>
