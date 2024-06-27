@@ -201,6 +201,10 @@ main,
 #app {
   height: 100%;
   flex-direction: column;
+}
+
+.index,
+.error {
   animation: fade-in 1s ease;
 }
 
