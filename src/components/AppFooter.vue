@@ -1,9 +1,11 @@
 <template>
+
   <p class="copyright">
     Design / Development / Abieza Ananta
     <br>
     [C]2024 Abieza Ananta
   </p>
+
 </template>
   
 <style>

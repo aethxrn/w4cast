@@ -8,13 +8,13 @@ import AppButton from "../components/AppButton.vue";
 import AppModal from "../components/AppModal.vue";
 import AppFooter from "../components/AppFooter.vue";
 
-import QuestionIcon from "../assets/icons/question.svg";
 import SunIcon from "../assets/icons/sun.svg";
+import FogIcon from "../assets/icons/fog.svg";
 import CloudIcon from "../assets/icons/cloud.svg";
 import RainIcon from "../assets/icons/rain.svg";
-import FogIcon from "../assets/icons/fog.svg";
 import ThunderIcon from "../assets/icons/thunderstorm.svg";
 import SnowIcon from "../assets/icons/snow.svg";
+import QuestionIcon from "../assets/icons/question.svg";
 
 const isModalVisible = ref(false);
 const displayModal = () => {
@@ -35,6 +35,14 @@ const conditionIconMap = {
   Sunny: SunIcon,
   Clear: SunIcon,
 
+  //if weather condition : fog
+
+  Fog: FogIcon,
+  Mist: FogIcon,
+  "Freezing fog": FogIcon,
+  "Blowing snow": FogIcon,
+  Blizzard: FogIcon,
+
   //if weather condition : cloudy
 
   "Partly Cloudy": CloudIcon,
@@ -46,14 +54,6 @@ const conditionIconMap = {
   "Patchy sleet possible": CloudIcon,
   "Patchy freezing drizzle possible": CloudIcon,
   "Thundery outbreaks possible": CloudIcon,
-
-  //if weather condition : fog
-
-  Fog: FogIcon,
-  Mist: FogIcon,
-  "Freezing fog": FogIcon,
-  "Blowing snow": FogIcon,
-  Blizzard: FogIcon,
 
   //if weather condition : rainy
 
