@@ -11,7 +11,6 @@
         <h1 class="error__container__text__heading">404</h1>
         <p class="error__container__text__sub">Not Found</p>
       </div>
-
     </div>
   </router-link>
 
@@ -39,7 +38,6 @@
   margin-top: auto;
 
   display: flex;
-  justify-content: space-between;
 }
 
 .error__container__text {
@@ -50,6 +48,24 @@
 .error__container__text__heading {
   font-size: 12vw;
   font-family: "Secondary";
+}
+
+@media only screen and (max-width: 768px) {
+  .error__container {
+    margin: auto;
+    justify-content: center;
+  }
+
+  .error__container__text {
+    align-items: center;
+    filter: opacity(25%);
+    flex-direction: column;
+    gap: var(--gap);
+  }
+
+  .error__container__text__heading {
+    font-size: 50vw;
+  }
 }
 </style>
   
