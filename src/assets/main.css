@@ -296,7 +296,7 @@ input::placeholder {
   overflow: hidden;
 }
 
-.app-button {
+button {
   width: 100%;
 
   font-size: 1.75rem;
