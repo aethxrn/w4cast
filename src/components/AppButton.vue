@@ -9,18 +9,20 @@ const openModal = () => {
 <template>
 
   <button @click="openModal">
+    [
     <slot></slot>
+    ]
   </button>
 
 </template>
 
 <style scoped>
 button {
-  width: fit-content;
+  width: 100%;
 
   border: none;
   border-radius: var(--border-radius);
-  padding: var(--padding) calc(var(--padding) * 2);
+  padding: calc(var(--padding) * 2) calc(var(--padding));
 
   background: var(--primary);
   color: var(--dark);
@@ -31,16 +33,21 @@ button {
 }
 
 button:hover {
-  transform: scale(1.05);
+  animation: flicker 0.2s step-end;
 }
 
-@media only screen and (max-width: 912px) {
-  button:hover {
-    transform: unset;
+@keyframes flicker {
+  0% {
+    color: transparent;
   }
-
-  button:active {
-    transform: scale(1.05);
+  50% {
+    color: var(--dark);
+  }
+  75% {
+    color: transparent;
+  }
+  100% {
+    color: var(--dark);
   }
 }
 </style>

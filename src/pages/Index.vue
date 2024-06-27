@@ -215,12 +215,16 @@ const weatherIcon = computed(() => {
         </CardCircle>
       </div>
 
-      <div class="column column_flex-column">
+      <div class="column column_flex-column column_height_fit">
         <AppButton
           class="app-button"
           @open-modal="displayModal"
         >
-          [ Search Location ]
+          Search Location
+        </AppButton>
+
+        <AppButton class="app-button">
+          Forecast - Impending
         </AppButton>
       </div>
     </div>
@@ -259,7 +263,10 @@ const weatherIcon = computed(() => {
 
 .column_flex-column {
   flex-direction: column;
-  justify-content: space-between;
+}
+
+.column_height_fit {
+  height: fit-content;
 }
 
 .widget {
@@ -314,24 +321,7 @@ const weatherIcon = computed(() => {
 
 .app-button {
   display: none;
-
-  width: 100%;
-  padding: calc(var(--padding) * 2) calc(var(--padding));
 }
-
-/* animation  */
-
-@keyframes scale {
-  0% {
-    transform: scale(0.9);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}
-
-/* animation  */
 
 @media only screen and (max-width: 912px) {
   .index {

@@ -33,14 +33,20 @@ defineProps({
     <div class="card__wrapper card__wrapper_column">
       <h1 class="card__heading">{{ place ? place.location.name : "unassigned" }}</h1>
       <hr>
-    </div>
 
-    <AppButton
-      @open-modal="$emit('open-modal')"
-      class="card__button"
-    >
-      [ Search Location ]
-    </AppButton>
+      <div class="card__wrapper">
+        <AppButton
+          class="app-button"
+          @open-modal="$emit('open-modal')"
+        >
+          Search Location
+        </AppButton>
+
+        <AppButton class="app-button">
+          Forecast - Impending
+        </AppButton>
+      </div>
+    </div>
   </div>
 
 </template>
@@ -64,6 +70,7 @@ hr {
 
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .card__wrapper {
@@ -94,8 +101,8 @@ hr {
 }
 
 @media only screen and (max-width: 912px) {
-  .card {
-    justify-content: space-between;
+  .app-button {
+    display: none;
   }
 
   .card__button {
