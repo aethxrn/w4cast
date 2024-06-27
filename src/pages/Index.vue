@@ -115,7 +115,7 @@ const weatherIcon = computed(() => {
 
   <div class="index">
     <div class="row row_column-reverse">
-      <div class="column column_height-fit">
+      <div class="column">
         <CardCircle class="widget">
           <div class="widget__wrapper widget__wrapper_center">
             <h1 class="deg__text">{{ place ? Math.round(place.current.feelslike_c) : "00" }}&deg;C</h1>
@@ -171,7 +171,7 @@ const weatherIcon = computed(() => {
         </CardRectangle>
       </div>
 
-      <div class="column">
+      <div class="column column_h-100">
         <AppLocation
           class="widget"
           :place="place"
@@ -181,7 +181,7 @@ const weatherIcon = computed(() => {
     </div>
 
     <div class="row">
-      <div class="column column_height-fit">
+      <div class="column">
         <CardRectangle class="widget">
           <div class="widget__wrapper widget__wrapper_between">
             <p class="widget__label">//Humidity</p>
@@ -250,7 +250,12 @@ const weatherIcon = computed(() => {
 .row,
 .column {
   width: 100%;
+  height: fit-content;
   display: flex;
+}
+
+.row {
+  height: 100%;
 }
 
 .column_flex-column {
@@ -342,13 +347,12 @@ const weatherIcon = computed(() => {
     flex-direction: column-reverse;
   }
 
-  .column_height-fit {
-    height: fit-content;
+  .column_h-100 {
+    height: 100%;
   }
 
   .app-button {
     display: unset;
-    height: 25%;
     font-size: 3rem;
   }
 }
