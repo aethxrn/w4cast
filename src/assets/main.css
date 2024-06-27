@@ -201,6 +201,7 @@ main,
 #app {
   height: 100%;
   flex-direction: column;
+  animation: fade-in 1s ease;
 }
 
 /* Style text */
@@ -295,3 +296,16 @@ button {
   font-family: "Secondary";
   font-size: 1.75rem;
 }
+
+/* animtion  */
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* animtion  */

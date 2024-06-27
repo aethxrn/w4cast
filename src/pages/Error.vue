@@ -20,6 +20,7 @@
 <style scoped>
 .error {
   position: relative;
+  text-decoration: none;
 }
 
 .error__text {
