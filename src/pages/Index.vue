@@ -253,7 +253,6 @@ const weatherIcon = computed(() => {
 .row,
 .column {
   width: 100%;
-  height: 100%;
   display: flex;
 }
 
@@ -334,7 +333,7 @@ const weatherIcon = computed(() => {
 /* animation  */
 
 @media only screen and (max-width: 912px) {
-  main {
+  .index {
     height: 100%;
   }
 

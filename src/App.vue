@@ -14,8 +14,7 @@ import AppHeader from "./components/AppHeader.vue";
 
 <style scoped>
 main {
-  margin: auto;
-  flex-direction: column;
+  height: 100%;
 }
 </style>
 
