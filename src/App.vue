@@ -6,8 +6,17 @@ import AppHeader from "./components/AppHeader.vue";
 
   <AppHeader></AppHeader>
 
-  <router-view></router-view>
+  <main>
+    <router-view></router-view>
+  </main>
 
 </template>
+
+<style scoped>
+main {
+  margin: auto;
+  flex-direction: column;
+}
+</style>
 
 

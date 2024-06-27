@@ -114,7 +114,7 @@ const weatherIcon = computed(() => {
 
 <template>
 
-  <main>
+  <div class="index">
     <div class="row row_column-reverse">
       <div class="column column_height-fit">
         <CardCircle class="widget">
@@ -227,7 +227,7 @@ const weatherIcon = computed(() => {
         <AppFooter></AppFooter>
       </div>
     </div>
-  </main>
+  </div>
 
   <AppModal
     :isVisible="isModalVisible"
@@ -238,13 +238,13 @@ const weatherIcon = computed(() => {
 </template>
 
 <style scoped>
-main {
+.index {
   margin: auto;
   flex-direction: column;
   transition: 0.25s ease;
 }
 
-main,
+.index,
 .row,
 .column {
   gap: var(--gap);

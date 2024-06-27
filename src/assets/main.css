@@ -177,6 +177,7 @@ html {
 }
 
 main,
+.index,
 #app {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -188,9 +189,12 @@ main,
   width: 100%;
   display: flex;
 
-  padding: var(--padding);
-
   overflow: hidden;
+}
+
+main,
+#app {
+  padding: var(--padding);
 }
 
 #app {
