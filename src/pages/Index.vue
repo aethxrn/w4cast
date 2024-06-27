@@ -1,11 +1,12 @@
 <script setup>
 import { ref, computed } from "vue";
 
-import AppCardCircle from "../components/CardCircle.vue";
-import AppCardRect from "../components/CardRectangle.vue";
+import CardCircle from "../components/CardCircle.vue";
+import CardRectangle from "../components/CardRectangle.vue";
 import AppLocation from "../components/AppLocation.vue";
 import AppButton from "../components/AppButton.vue";
 import AppModal from "../components/AppModal.vue";
+import AppFooter from "../components/AppFooter.vue";
 
 import QuestionIcon from "../assets/icons/question.svg";
 import SunIcon from "../assets/icons/sun.svg";
@@ -116,13 +117,13 @@ const weatherIcon = computed(() => {
   <main>
     <div class="row row_column-reverse">
       <div class="column column_height-fit">
-        <AppCardCircle class="widget">
+        <CardCircle class="widget">
           <div class="widget__wrapper widget__wrapper_center">
             <h1 class="deg__text">{{ place ? Math.round(place.current.feelslike_c) : "00" }}&deg;C</h1>
           </div>
-        </AppCardCircle>
+        </CardCircle>
 
-        <AppCardRect class="widget">
+        <CardRectangle class="widget">
           <div class="widget__wrapper widget__wrapper_between">
             <p class="widget__label">//Wind Speed</p>
 
@@ -168,7 +169,7 @@ const weatherIcon = computed(() => {
               <p class="widget__info__text">km/h</p>
             </div>
           </div>
-        </AppCardRect>
+        </CardRectangle>
       </div>
 
       <div class="column">
@@ -182,7 +183,7 @@ const weatherIcon = computed(() => {
 
     <div class="row">
       <div class="column column_height-fit">
-        <AppCardRect class="widget">
+        <CardRectangle class="widget">
           <div class="widget__wrapper widget__wrapper_between">
             <p class="widget__label">//Humidity</p>
 
@@ -202,9 +203,9 @@ const weatherIcon = computed(() => {
               <p class="widget__info__text">%</p>
             </div>
           </div>
-        </AppCardRect>
+        </CardRectangle>
 
-        <AppCardCircle class="widget">
+        <CardCircle class="widget">
           <div class="widget__wrapper widget__wrapper_center">
             <img
               class="widget__icon"
@@ -212,7 +213,7 @@ const weatherIcon = computed(() => {
             >
             <p class="widget__info_asl">{{ place ? place.current.condition.text : "not found" }}</p>
           </div>
-        </AppCardCircle>
+        </CardCircle>
       </div>
 
       <div class="column column_flex-column">
@@ -222,6 +223,8 @@ const weatherIcon = computed(() => {
         >
           [ Search Location ]
         </AppButton>
+
+        <AppFooter></AppFooter>
       </div>
     </div>
   </main>
