@@ -6,7 +6,6 @@ import CardRectangle from "../components/CardRectangle.vue";
 import AppLocation from "../components/AppLocation.vue";
 import AppButton from "../components/AppButton.vue";
 import AppModal from "../components/AppModal.vue";
-import AppFooter from "../components/AppFooter.vue";
 
 import SunIcon from "../assets/icons/sun.svg";
 import FogIcon from "../assets/icons/fog.svg";
@@ -223,8 +222,6 @@ const weatherIcon = computed(() => {
         >
           [ Search Location ]
         </AppButton>
-
-        <AppFooter></AppFooter>
       </div>
     </div>
   </div>

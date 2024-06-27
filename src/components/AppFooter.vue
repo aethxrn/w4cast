@@ -12,7 +12,8 @@
 .copyright {
   text-align: right;
 
-  margin-top: auto;
-  margin-left: auto;
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
 </style>
