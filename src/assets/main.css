@@ -240,18 +240,18 @@ h4 {
 p {
   font-family: "Secondary";
 
-  font-size: 1.75rem;
+  font-size: 1.8rem;
   line-height: 1.5;
 }
 
 a {
   font-family: "Secondary";
-  font-size: 3rem;
+  font-size: 1.8rem;
 }
 
 span {
   font-family: "Secondary";
-  font-size: 1.75rem;
+  font-size: 1.8rem;
   line-height: 1.5;
 }
 
@@ -299,7 +299,7 @@ input::placeholder {
 button {
   width: 100%;
 
-  font-size: 1.75rem;
+  font-size: 1.8rem;
   font-family: "Secondary";
 }
 
