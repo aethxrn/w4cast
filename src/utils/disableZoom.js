@@ -1,6 +1,5 @@
-// src/utils/disableZoom.js
 export function disableZoom() {
-  // Prevent zooming with Ctrl + +/-/0
+  // Prevent mobile screen zoom
   window.addEventListener("keydown", (event) => {
     if (
       (event.ctrlKey || event.metaKey) &&
@@ -10,7 +9,6 @@ export function disableZoom() {
     }
   });
 
-  // Prevent zooming with Ctrl + mouse wheel
   window.addEventListener(
     "wheel",
     (event) => {
@@ -19,5 +17,43 @@ export function disableZoom() {
       }
     },
     { passive: false }
+  );
+
+  // Prevent mobile screen zoom
+  document.addEventListener(
+    "touchstart",
+    function (event) {
+      if (event.touches.length > 1) {
+        event.preventDefault();
+      }
+    },
+    { passive: false }
+  );
+
+  document.addEventListener("gesturestart", function (event) {
+    event.preventDefault();
+  });
+
+  document.addEventListener(
+    "touchmove",
+    function (event) {
+      if (event.scale !== undefined && event.scale !== 1) {
+        event.preventDefault();
+      }
+    },
+    { passive: false }
+  );
+
+  let lastTouchEnd = 0;
+  document.addEventListener(
+    "touchend",
+    function (event) {
+      const now = new Date().getTime();
+      if (now - lastTouchEnd <= 300) {
+        event.preventDefault();
+      }
+      lastTouchEnd = now;
+    },
+    false
   );
 }
