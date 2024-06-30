@@ -34,7 +34,7 @@ defineProps({
       <h1 class="card__heading">{{ place ? place.location.name : "unassigned" }}</h1>
       <hr>
 
-      <div class="card__wrapper">
+      <div class="card__wrapper card_wrapper_hidden">
         <AppButton
           class="app-button"
           @open-modal="$emit('open-modal')"
@@ -101,7 +101,7 @@ hr {
 }
 
 @media only screen and (max-width: 912px) {
-  .app-button {
+  .card_wrapper_hidden {
     display: none;
   }
 
