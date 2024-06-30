@@ -71,11 +71,30 @@ const getWeather = async (id) => {
           >
         </form>
 
-        <div
-          class="modal__suggestion__container"
-          v-if="searchTerm.results !== null"
-        >
+        <div class="modal__suggestion__container">
           <div class="modal__suggestion__wrapper">
+            <button
+              class="modal__btn modal__suggestion"
+              v-if="searchTerm.results === null && searchTerm.query !== ''"
+            >
+              Searching...
+            </button>
+          </div>
+
+          <div class="modal__suggestion__wrapper">
+            <button
+              class="modal__btn modal__suggestion"
+              v-if="searchTerm.results && searchTerm.results.length === 0"
+            >
+              Not Found
+            </button>
+          </div>
+
+          <div
+            class="
+              modal__suggestion__wrapper"
+            v-if="searchTerm.results !== null"
+          >
             <button
               class="modal__btn modal__suggestion"
               @click="getWeather(place.id)"

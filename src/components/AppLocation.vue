@@ -47,7 +47,7 @@ defineProps({
           to="/forecast"
         >
           <AppButton class="app-button">
-            Forecast - Impending
+            Forecast - In Dev
           </AppButton>
         </router-link>
       </div>
