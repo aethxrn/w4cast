@@ -240,18 +240,18 @@ h4 {
 p {
   font-family: "Secondary";
 
-  font-size: 1.8rem;
+  font-size: 2rem;
   line-height: 1.5;
 }
 
 a {
   font-family: "Secondary";
-  font-size: 1.8rem;
+  font-size: 2rem;
 }
 
 span {
   font-family: "Secondary";
-  font-size: 1.8rem;
+  font-size: 2rem;
   line-height: 1.5;
 }
 
@@ -280,7 +280,7 @@ textarea {
   border-radius: 1rem;
   outline-color: var(--color-blue);
 
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 textarea {
   min-height: 16rem;
@@ -299,7 +299,7 @@ input::placeholder {
 button {
   width: 100%;
 
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-family: "Secondary";
 }
 
