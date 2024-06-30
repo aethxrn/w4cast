@@ -228,7 +228,7 @@ const weatherIcon = computed(() => {
           class="router-link"
         >
           <AppButton class="app-button">
-            Forecast - Impending
+            Forecast - In Dev
           </AppButton>
         </router-link>
       </div>
