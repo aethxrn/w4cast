@@ -83,7 +83,7 @@ hr {
 
   display: flex;
   justify-content: space-between;
-  gap: var(--gap);
+  gap: calc(var(--gap) / 2);
 }
 
 .card__wrapper_column {
