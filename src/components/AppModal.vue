@@ -5,6 +5,12 @@ const props = defineProps({
   isVisible: Boolean,
 });
 
+const preventEnter = (event) => {
+  if (event.key === "Enter") {
+    event.preventDefault();
+  }
+};
+
 const emit = defineEmits(["place-data"]["close-modal"]);
 const closeModal = () => {
   emit("close-modal");
@@ -68,6 +74,7 @@ const getWeather = async (id) => {
             style="color: var(--light);"
             v-model="searchTerm.query"
             @input="handleSearch"
+            @keydown="preventEnter"
           >
         </form>
 
