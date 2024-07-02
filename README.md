@@ -16,6 +16,7 @@ This app contains primary weather information such as temperature, wind speed, h
 - Humidity
 - Weather Condition
 - 3 Day Forecast (In Development)
+- 404 Page
 
 ## Tech Stack
 
