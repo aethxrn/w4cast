@@ -17,6 +17,7 @@ This app contains primary weather information such as temperature, wind speed, h
 - Weather Condition
 - 3 Day Forecast (In Development)
 - 404 Page
+- Cool Icons (Made by Me)
 
 ## Tech Stack
 
