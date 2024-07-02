@@ -29,7 +29,6 @@ This app contains primary weather information such as temperature, wind speed, h
 | ----------------- | ------------------------------------------------------------------ |
 | Light | ![#eeeeee](https://via.placeholder.com/10/eeeeee?text=+) #eeeeee |
 | Dark | ![#0f0f0f](https://via.placeholder.com/10/0f0f0f?text=+) #0f0f0f |
-| Secondary | ![#252525](https://via.placeholder.com/10/252525?text=+) #252525 |
 | Primary | ![#dc5f00](https://via.placeholder.com/10/dc5f00?text=+) #dc5f00 |
 
 
