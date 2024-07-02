@@ -10,9 +10,12 @@ This app contains primary weather information such as temperature, wind speed, h
 
 ## Features
 
-- Primary weather information
-- Location search
-- Responsive design
+- Location
+- Temperature
+- Wind Speed
+- Humidity
+- Weather Condition
+- 3 Day Forecast (In Development)
 
 ## Tech Stack
 
