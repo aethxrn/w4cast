@@ -6,7 +6,7 @@ A simple weather web-based app powered by Vue.js and WeatherAPI.
 
 ## General Info
 
-This app contains primary weather information such as temperature, wind speed, humidity, and weather type (e.g., cloudy) based on the location. This project was made for personal learning material and is currently unfinished. More features are planned to be added soon as the development continues.
+This app contains primary weather information such as temperature, wind speed, humidity, and weather condition based on the location. This project was made for personal learning material and is currently unfinished. More features are planned to be added soon as the development continues.
 
 ## Features
 
