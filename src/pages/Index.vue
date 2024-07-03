@@ -311,6 +311,7 @@ const weatherIcon = computed(() => {
 .widget__info_asl {
   position: absolute;
   margin-top: 75%;
+  text-align: center;
 }
 
 .widget__icon {
