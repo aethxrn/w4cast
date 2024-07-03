@@ -1,4 +1,4 @@
-![Vue Weather App](design/poster.jpg)
+![Vue Weather App](public/img/poster.jpg)
 
 # W4CAST
 
