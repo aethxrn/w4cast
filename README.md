@@ -35,9 +35,9 @@ This app contains primary weather information such as temperature, wind speed, h
 
 | Color   | Hex                                                              |
 | ------- | ---------------------------------------------------------------- |
-| Light   | ![#eeeeee](https://via.placeholder.com/10/eeeeee?text=+) #eeeeee |
-| Dark    | ![#0f0f0f](https://via.placeholder.com/10/0f0f0f?text=+) #0f0f0f |
-| Primary | ![#dc5f00](https://via.placeholder.com/10/dc5f00?text=+) #dc5f00 |
+| Light   | #eeeeee |
+| Dark    | #0f0f0f |
+| Primary | #dc5f00 |
 
 ## Additional Info
 
